@@ -15,6 +15,8 @@
         <%= appointment.patient.last_name %>
       <b>  Appointment Date/Time: </b>
         <%= appointment.appointment_date %>
+      </li>
+        <li>
         <%= link_to 'Cancel Appointment', appointment_path(appointment), method: :delete, class: 'btn' %>
         </li>
       <% end %>

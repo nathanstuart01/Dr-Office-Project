@@ -12,7 +12,7 @@
     <% @patient.appointments.each do |appointment| %>
       <li>
         <b>
-        <%= appointment.appointment_date %> with Dr: <%= appointment.doctor.last_name %>
+        <%= appointment.appointment_date %> with Dr. <%= appointment.doctor.last_name %>
         </b>
       </li>
       <li>
