@@ -1,0 +1,26 @@
+<h1 class="z-depth-3 teal lighten-2">Scheduled Appointments</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Current Office Appointments</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @appointments.each do |appointment| %>
+      <tr>
+        <td>
+          <b>Dr:</b> <%= appointment.doctor.last_name %>
+          <b>Patient Last Name:</b> <%= appointment.patient.last_name %>
+          <b>Appointment Date:</b> <%= appointment.appointment_date %>
+          <b>Appointment Time:</b> <%= appointment.appointment_time %>
+        </td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br />
+
+<%= link_to 'Office Home', :root, class: 'btn' %>

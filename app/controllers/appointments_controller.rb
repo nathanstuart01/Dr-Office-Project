@@ -1,4 +1,9 @@
 class AppointmentsController < ApplicationController
+
+  def index
+    @appointments = Appointment.all
+  end
+
   def new
     @doctors = Doctor.all.map { |d| [d.first_name, d.last_name, d.id] }
     @patients = Patient.all.map { |p| [p.first_name, p.last_name, p.id] }
@@ -9,7 +14,7 @@ class AppointmentsController < ApplicationController
     @appointment = Appointment.new(appointment_params)
       if @appointment.save
         flash[:notice] = 'New Appointment Added'
-        redirect_to :back
+        redirect_to appointments_path
       else
         render :new
       end
@@ -18,7 +23,7 @@ class AppointmentsController < ApplicationController
   def destroy
     appointment = Appointment.find(params[:id])
     appointment.destroy
-    redirect_to doctor_path(appointment.doctor_id)
+    redirect_to :root
   end
 
   private

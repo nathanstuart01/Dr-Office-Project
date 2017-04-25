@@ -11,8 +11,11 @@
   <ul>
     <% @doctor.appointments.each do |appointment| %>
       <li>
-        <%= appointment.patient.last_name %> - <%= appointment.appointment_date %> -
-        <%= link_to 'Remove', appointment_path(appointment), method: :delete %>
+      <b>  Patient Last Name: </b>
+        <%= appointment.patient.last_name %>
+      <b>  Appointment Date/Time: </b>
+        <%= appointment.appointment_date %>
+        <%= link_to 'Cancel Appointment', appointment_path(appointment), method: :delete, class: 'btn' %>
         </li>
       <% end %>
     </ul>
@@ -20,6 +23,4 @@
       <h5>No Appointments Found</h5>
   <% end %>
 
-  <%= link_to 'Home', :root %>
-  <br/ >
-  <%= link_to 'Edit', edit_doctor_path(@doctor) %>
+  <%= link_to 'Home', :root, class: 'btn' %>
